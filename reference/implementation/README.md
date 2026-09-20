@@ -1,19 +1,28 @@
-# Reference Implementation
+# ATF V1 Reference Implementation
 
-The reference implementation demonstrates the Agentic Trust Protocol without defining the protocol itself.
+A small, modular Python reference implementation for the normative ATF Protocol V1.
 
-The implementation should begin as a modular architecture rather than prematurely becoming a distributed microservice system.
+## Scope
 
-## Initial scope
+- JSON Schema validation for core V1 protocol objects
+- deterministic authorization semantics
+- loading the canonical V1 test-vector suite
+- CLI validation
 
-- Agent identity
-- Delegation verification
-- Authorization evaluation
-- Capability evaluation
-- Policy evaluation
-- Revocation checking
-- Audit/provenance recording
+This implementation demonstrates protocol semantics; it is not a centralized trust service and does not define the protocol.
 
-## Design rule
+## Run
 
-The implementation must remain replaceable and interoperable with independent implementations.
+```bash
+cd reference/implementation
+python -m pip install -e .
+pytest -q
+```
+
+CLI:
+
+```bash
+atf-validate schema authorization-request request.json
+```
+
+The implementation MUST remain replaceable and interoperable with independent implementations.
