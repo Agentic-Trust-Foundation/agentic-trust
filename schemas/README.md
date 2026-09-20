@@ -1,5 +1,15 @@
 # Schemas
 
-Machine-readable schemas used by the protocol, examples, conformance tests, and reference implementation will live here.
+Machine-readable JSON Schemas for ATF Protocol V1 live under `schemas/v1/`.
 
-Schemas must follow the normative protocol specifications and must not silently introduce behavior that is absent from the specification.
+Format: JSON Schema Draft 2020-12.
+Protocol identifier: `atf/v1`.
+
+Core schemas:
+- authorization-request
+- authorization-decision
+- delegation
+- capability
+- error
+
+Schemas implement the normative protocol semantics and MUST NOT silently introduce behavior absent from the V1 specification.
