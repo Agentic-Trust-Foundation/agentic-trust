@@ -1,5 +1,5 @@
 # Test Vectors
 
-Deterministic protocol inputs, expected decisions, credential/delegation fixtures, and interoperability test vectors belong here.
+Deterministic ATF Protocol V1 inputs and expected outcomes live under `test-vectors/v1/`.
 
-Test vectors should cover both successful and adversarial cases, including denial and revocation scenarios.
+Core vectors are normative conformance fixtures. Implementations MAY add implementation-specific vectors, but MUST NOT change the meaning of the core vectors.
