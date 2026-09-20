@@ -3,7 +3,7 @@ import json
 import yaml
 from jsonschema import Draft202012Validator
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[4]
 SCHEMA_DIR = ROOT / "schemas" / "v1"
 VECTOR_FILE = ROOT / "test-vectors" / "v1" / "core.yaml"
 
