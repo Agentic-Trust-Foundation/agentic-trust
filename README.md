@@ -99,4 +99,8 @@ The first reference scenario is **Agent Purchase Authorization**. Payment execut
 
 ## Status
 
-Architecture v1 is established. Protocol specification, conformance requirements, and reference implementation are the next implementation-facing layers.
+Architecture v1 is established. The repository now contains the V1 specification artifacts, schemas, examples, conformance suite, test vectors, and reference implementation.
+
+The current focus is interoperability hardening, expanded conformance coverage, documentation, security review, and versioned evolution of the protocol.
+
+This repository is an open protocol and reference implementation project, not a centralized trust authority or a production identity service.
