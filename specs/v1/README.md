@@ -25,4 +25,4 @@ Version 1 defines the initial protocol scope for agent identity, delegated autho
 19. Versioning
 20. Conformance
 
-These files will become normative specifications as each area is finalized. The current repository stage establishes the structure without prematurely freezing protocol details.
+The files in this directory are the normative V1 protocol specifications. Implementations MUST follow their defined semantics. Extensions and implementation-specific profiles MUST NOT silently change the core V1 contract.
