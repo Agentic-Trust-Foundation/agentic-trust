@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentic-trust.foundation/schemas/v1/delegation.schema.json",
+  "title": "ATF Delegation V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol_version", "delegation_id", "delegator", "delegate", "scope", "valid_from", "valid_until"],
+  "properties": {
+    "protocol_version": {"const": "atf/v1"},
+    "delegation_id": {"type": "string", "minLength": 1},
+    "delegator": {"$ref": "#/$defs/ref"},
+    "delegate": {"$ref": "#/$defs/ref"},
+    "scope": {"type": "object", "minProperties": 1},
+    "constraints": {"type": "object"},
+    "valid_from": {"type": "string", "format": "date-time"},
+    "valid_until": {"type": "string", "format": "date-time"}
+  },
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {"id": {"type": "string", "minLength": 1}, "type": {"type": "string"}}
+    }
+  }
+}
