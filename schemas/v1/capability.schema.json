@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentic-trust.foundation/schemas/v1/capability.schema.json",
+  "title": "ATF Capability V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol_version", "capability_id", "subject", "actions"],
+  "properties": {
+    "protocol_version": {"const": "atf/v1"},
+    "capability_id": {"type": "string", "minLength": 1},
+    "subject": {"$ref": "#/$defs/ref"},
+    "actions": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "resources": {"type": "array", "items": {"type": "string"}},
+    "constraints": {"type": "object"}
+  },
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {"id": {"type": "string", "minLength": 1}, "type": {"type": "string"}}
+    }
+  }
+}
