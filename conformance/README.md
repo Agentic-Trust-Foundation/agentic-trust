@@ -1,16 +1,11 @@
 # Conformance
 
-The conformance suite verifies that an implementation behaves according to the Agentic Trust Protocol.
+The V1 conformance suite verifies implementations against the Agentic Trust Protocol semantics.
 
-## Initial conformance domains
+Core domains include identity, credentials, delegation, authorization, capabilities, policy, revocation, consent, provenance, and security.
 
-- Identity
-- Credentials
-- Delegation
-- Authorization
-- Capabilities
-- Policy
-- Revocation
-- Audit
+Conformance is evidence-based. A result MUST identify protocol version, implementation version, vector-suite version, and applicable profile. Missing required evidence is non-conforming.
 
-Conformance is intended to be testable and evidence-based rather than a vendor claim.
+Core deterministic vectors are published in `test-vectors/v1/core.yaml` and referenced by `conformance/v1/core-vectors.yaml`.
+
+The Agent-Pay boundary remains a separate profile under `conformance/v1/agent-pay-contract-vectors.yaml`.
