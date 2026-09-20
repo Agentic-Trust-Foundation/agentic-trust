@@ -4,5 +4,8 @@ version = "0.1.0"
 requires-python = ">=3.11"
 dependencies = ["jsonschema>=4.23,<5", "PyYAML>=6.0,<7"]
 
+[project.optional-dependencies]
+test = ["pytest>=8,<9"]
+
 [project.scripts]
 atf-validate = "atf_reference.cli:main"
