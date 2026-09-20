@@ -1,0 +1,51 @@
+version: 1
+suite: atf-core-v1
+protocol: atf/v1
+vectors:
+  - id: identity-001
+    area: identity
+    given: authenticated-agent-with-stable-identifier
+    expect: identity-can-be-bound-to-request
+  - id: authorization-001
+    area: authorization
+    request:
+      subject: agent-123
+      action: purchase
+      resource: merchant-456
+    expect: ALLOW
+  - id: authorization-002
+    area: authorization
+    given: required-authorization-evidence-missing
+    expect: DENY
+  - id: delegation-001
+    area: delegation
+    given: delegate-requests-action-outside-delegated-scope
+    expect: DENY
+  - id: delegation-002
+    area: delegation
+    given: delegator-does-not-hold-requested-authority
+    expect: DENY
+  - id: capability-001
+    area: capability
+    given: action-not-in-capability
+    expect: DENY
+  - id: policy-001
+    area: policy
+    given: decision-produced-under-policy-version-7
+    expect: decision-references-policy-version-7
+  - id: revocation-001
+    area: revocation
+    given: delegation-revoked-before-request
+    expect: DENY
+  - id: consent-001
+    area: consent
+    given: policy-requires-human-consent-and-consent-is-absent
+    expect: REQUIRE_HUMAN
+  - id: security-001
+    area: security
+    given: verification-state-required-but-unavailable
+    expect: DENY
+  - id: provenance-001
+    area: provenance
+    given: authorization-decision-with-evidence-and-delegation-chain
+    expect: decision-is-reconstructable
