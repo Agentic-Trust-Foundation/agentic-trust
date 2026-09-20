@@ -1,0 +1,22 @@
+version: 1
+suite: atf-core-conformance-v1
+protocol: atf/v1
+source: ../../test-vectors/v1/core.yaml
+requirements:
+  - identity
+  - credentials
+  - delegation
+  - authorization
+  - capabilities
+  - policy
+  - revocation
+  - consent
+  - provenance
+  - security
+results:
+  conforming_outcomes:
+    - ALLOW
+    - DENY
+    - REQUIRE_HUMAN
+  evidence_required: true
+  fail_closed_required: true
