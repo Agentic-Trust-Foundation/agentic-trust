@@ -2,6 +2,8 @@
 
 **Status:** V1 integration contract guidance. This document defines the responsibility boundary and the minimum normalized authority context expected at the integration seam. It does not freeze a universal credential, token, signature, or wire format.
 
+**Project status / roadmap:** `docs/roadmap/v1-complete-and-v2-roadmap-2026-09.md`.
+
 ## Responsibility split
 
 ATF is the upstream authority layer. It answers whether an identified agent is acting under a valid, bounded, delegated authority in a given context.
@@ -40,7 +42,7 @@ An ATF adapter (or equivalent trusted verifier) must provide Agent-Pay a normali
 | `revocation_status` | Whether the relevant authority remains valid at decision time; inability to establish required status fails closed. |
 | `evidence_ref` / `evidence_version` | Stable, non-secret reference and version/digest sufficient to reconstruct what was relied upon. |
 
-This is a semantic checklist, not a finalized JSON schema. Exact requiredness and canonical serialization must be frozen alongside the ATF V1 schema before claiming cross-implementation wire interoperability.
+This is a semantic checklist, not a universal credential wire schema. Exact credential encoding remains an implementation/profile choice under V1.
 
 ## Decision sequence
 
@@ -75,6 +77,10 @@ This is a semantic checklist, not a finalized JSON schema. Exact requiredness an
 
 ## V1 interoperability boundary
 
-V1 deliberately does not freeze a universal ATF token or signature format. Protocol adapters may verify credentials and construct this normalized contract. Before claiming interoperable conformance, implementations must agree on canonical schema, required/optional claims, identifier semantics, amount/currency representation, timestamps, revocation freshness, error codes, and evidence-reference retention.
+V1 deliberately does not freeze a universal ATF token or signature format. Protocol adapters may verify credentials and construct this normalized contract.
 
-The shared machine-readable boundary vectors are published in [`conformance/v1/agent-pay-contract-vectors.yaml`](../../conformance/v1/agent-pay-contract-vectors.yaml). These vectors currently express core invariants; they are not a substitute for the full schema and adversarial test suite.
+The shared machine-readable boundary vectors are published in `conformance/v1/agent-pay-contract-vectors.yaml`. These vectors express core invariants; they are not a substitute for the full schema and adversarial test suite.
+
+## Change control
+
+Documentation clarification and non-breaking implementation hardening may proceed without changing this V1 boundary. Changes to authority semantics, required claims, or financial-boundary invariants require an explicit versioned extension/profile or V2 decision.
