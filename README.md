@@ -120,3 +120,4 @@ Future work must be classified as documentation clarification, non-breaking hard
 ## License
 
 Apache-2.0.
+\n## Ecosystem Projects\n\nThe public ATF protocol is part of a broader ecosystem:\n\n- **Agent Site Adapter** — public site/service integration layer built around ATF identity, capability, authentication, consent, and authorization boundaries.\n- **Agent-Pay** — separate financial control and payment execution layer.\n- **Agent-Pay Iran** — private country-specific product/deployment profile built on Agent-Pay.\n\nCross-project architecture and decisions are maintained in the private \`project-docs\` repository. Its contents are not part of the public protocol contract.\n
