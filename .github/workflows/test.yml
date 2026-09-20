@@ -1,0 +1,22 @@
+name: ATF Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: reference/implementation
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install reference implementation and test dependencies
+        run: python -m pip install -e '.[test]'
+      - name: Run reference implementation tests
+        run: pytest -q
