@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentic-trust.foundation/schemas/v1/error.schema.json",
+  "title": "ATF Protocol Error V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol_version", "code"],
+  "properties": {
+    "protocol_version": {"const": "atf/v1"},
+    "code": {"enum": ["INVALID_INPUT", "AUTHENTICATION_FAILED", "AUTHORIZATION_DENIED", "EVIDENCE_EXPIRED", "EVIDENCE_REVOKED", "VERIFICATION_UNAVAILABLE", "UNSUPPORTED_VERSION"]},
+    "message": {"type": "string"},
+    "request_id": {"type": "string"}
+  }
+}
