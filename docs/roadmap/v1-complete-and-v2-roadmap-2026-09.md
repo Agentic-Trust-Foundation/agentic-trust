@@ -1,6 +1,6 @@
 # ATF Project Status & Roadmap — V1 Final / V2 Forward Plan
 
-**Baseline date:** 2026-09-21  
+**Baseline date:** 2026-09-22  
 **Status:** **V1 FINAL — frozen baseline**  
 **Repository:** `Agentic-Trust-Foundation/agentic-trust`
 
@@ -90,8 +90,10 @@ The V1 baseline was hardened and verified with:
 - cross-repository ATF/Agent-Pay conformance;
 - GitHub Actions V1 conformance.
 
-Current ATF V1 conformance commit:
-`3074cc67dcaf6122f590bdc863044639723de9f9`
+Current `main` commit:
+`c349db88d95f1867164fe322df70beda69e5af1e`
+
+The repository has subsequently only received non-semantic CI runtime maintenance on `main`; the V1 semantic baseline remains frozen.
 
 ## 5. V1 canonical documentation
 
@@ -244,4 +246,4 @@ AGENTIC TRUST FOUNDATION
 
 ## 13. Current next action
 
-V1 is done. The next major engineering cycle should be selected deliberately from the V2 roadmap rather than by reopening the completed V1 baseline.
+V1 is done and remains frozen. The next major engineering cycle should be selected deliberately from the V2 roadmap or from an implementation/deployment profile rather than by reopening the completed V1 baseline.
