@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentic-trust.foundation/schemas/v2/agent-to-agent-delegation.schema.json",
+  "title": "ATF V2 Agent-to-Agent Delegation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "delegation_id",
+    "delegator",
+    "delegate",
+    "audience",
+    "actions",
+    "valid_from",
+    "valid_until",
+    "delegation_depth",
+    "parent_evidence"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": "atf/v2"
+    },
+    "delegation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "delegator": {
+      "$ref": "#/$defs/principal"
+    },
+    "delegate": {
+      "$ref": "#/$defs/principal"
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 1
+    },
+    "actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "constraints": {
+      "type": "object"
+    },
+    "valid_from": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "valid_until": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "delegation_depth": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "parent_evidence": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revocation_reference": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_integrity": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "$defs": {
+    "principal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
