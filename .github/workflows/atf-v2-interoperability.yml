@@ -1,0 +1,31 @@
+name: ATF V2 Interoperability
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "conformance/v2/**"
+      - "schemas/v2/interoperability-result.schema.json"
+      - "specs/v2/25-v2-interoperability.md"
+      - "tools/validate_v2_interoperability.py"
+      - ".github/workflows/atf-v2-interoperability.yml"
+  pull_request:
+    paths:
+      - "conformance/v2/**"
+      - "schemas/v2/interoperability-result.schema.json"
+      - "specs/v2/25-v2-interoperability.md"
+      - "tools/validate_v2_interoperability.py"
+      - ".github/workflows/atf-v2-interoperability.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install YAML dependency
+        run: python -m pip install pyyaml
+      - name: Validate Phase 25 V2 interoperability contract
+        run: python tools/validate_v2_interoperability.py
