@@ -3,6 +3,7 @@ package main
 import (
  "fmt"
  "os"
+ "path/filepath"
  "gopkg.in/yaml.v3"
 )
 
@@ -10,7 +11,8 @@ type Vector struct { ID string `yaml:"id"`; Expected string `yaml:"expected_deci
 type Document struct { Phase int `yaml:"phase"`; Protocol string `yaml:"protocol_version"`; Vectors []Vector `yaml:"vectors"` }
 
 func main() {
- b, err := os.ReadFile("conformance/v2/phase-26-34-vectors.yaml"); if err != nil { panic(err) }
+ path := filepath.Join("..", "..", "..", "..", "conformance", "v2", "phase-26-34-vectors.yaml")
+ b, err := os.ReadFile(path); if err != nil { panic(err) }
  var d Document
  if err := yaml.Unmarshal(b, &d); err != nil { panic(err) }
  if d.Phase != 26 || d.Protocol != "atf/v2" || len(d.Vectors) != 20 { panic("invalid phase 26-34 contract") }
