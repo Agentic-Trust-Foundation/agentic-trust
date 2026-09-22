@@ -18,6 +18,9 @@ jobs:
       - uses: actions/setup-go@v6
         with:
           go-version: "1.22"
+      - name: Resolve and verify Go module dependencies
+        working-directory: reference/implementation/go/v2-conformance
+        run: go mod tidy
       - name: Run independent Go verifier
         working-directory: reference/implementation/go/v2-conformance
         run: go run .
