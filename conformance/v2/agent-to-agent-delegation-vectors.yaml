@@ -1,0 +1,40 @@
+version: atf/v2
+phase: 24
+vectors:
+  - id: a2a-positive-attenuation
+    parent_actions: [purchase, refund]
+    child_actions: [purchase]
+    expected: ALLOW
+  - id: a2a-action-expansion
+    parent_actions: [purchase]
+    child_actions: [purchase, refund]
+    expected: DENY
+  - id: a2a-amount-expansion
+    parent_constraints: {max_amount: 100}
+    child_constraints: {max_amount: 101}
+    expected: DENY
+  - id: a2a-expiry-expansion
+    parent_valid_until: "2026-10-01T00:00:00Z"
+    child_valid_until: "2026-10-02T00:00:00Z"
+    expected: DENY
+  - id: a2a-depth-exceeded
+    parent_depth: 0
+    child_depth: 1
+    max_depth: 0
+    expected: DENY
+  - id: a2a-audience-substitution
+    parent_audience: merchant.example
+    child_audience: other.example
+    expected: DENY
+  - id: a2a-revoked-parent
+    parent_revoked: true
+    expected: DENY
+  - id: a2a-subject-binding
+    requested_subject: agent-b
+    delegate: agent-c
+    expected: DENY
+  - id: a2a-human-approval-no-authority
+    upstream_authority: purchase
+    requested_action: delete_account
+    human_approved: true
+    expected: DENY
