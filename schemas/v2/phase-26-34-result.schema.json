@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentic-trust.foundation/schemas/v2/phase-26-34-result.schema.json",
+  "title": "ATF V2 Phase 26-34 Conformance Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "phase",
+    "vector_id",
+    "protocol_version",
+    "implementation",
+    "expected_decision",
+    "actual_decision",
+    "result"
+  ],
+  "properties": {
+    "phase": {
+      "type": "integer",
+      "minimum": 26,
+      "maximum": 34
+    },
+    "vector_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "protocol_version": {
+      "const": "atf/v2"
+    },
+    "implementation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expected_decision": {
+      "enum": [
+        "ALLOW",
+        "DENY",
+        "REQUIRE_HUMAN",
+        "INDETERMINATE"
+      ]
+    },
+    "actual_decision": {
+      "enum": [
+        "ALLOW",
+        "DENY",
+        "REQUIRE_HUMAN",
+        "INDETERMINATE"
+      ]
+    },
+    "result": {
+      "enum": [
+        "PASS",
+        "FAIL"
+      ]
+    },
+    "evidence_reference": {
+      "type": "string"
+    },
+    "input_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}
