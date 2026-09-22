@@ -1,0 +1,15 @@
+phases:
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+protocol_version: atf/v2
+two_independent_implementations:
+  - atf-python-reference-validator/1
+  - atf-go-reference-validator/1
+canonical_vectors: conformance/v2/phase-26-34-vectors.yaml
