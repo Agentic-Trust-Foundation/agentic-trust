@@ -1,0 +1,19 @@
+name: ATF V2 Phases 26-34
+on:
+  push:
+    branches: [main]
+    paths: ["specs/v2/26-34-v2-foundation.md","schemas/v2/phase-26-34-result.schema.json","conformance/v2/phase-26-34-**","tools/validate_v2_phase_26_34.py","reference/implementation/go/v2-conformance/**",".github/workflows/atf-v2-phase-26-34.yml"]
+  pull_request:
+    paths: ["specs/v2/26-34-v2-foundation.md","schemas/v2/phase-26-34-result.schema.json","conformance/v2/phase-26-34-**","tools/validate_v2_phase_26_34.py","reference/implementation/go/v2-conformance/**",".github/workflows/atf-v2-phase-26-34.yml"]
+jobs:
+  conformance:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: {python-version: "3.12"}
+      - run: python -m pip install pyyaml
+      - run: python tools/validate_v2_phase_26_34.py
+      - uses: actions/setup-go@v6
+        with: {go-version: "1.22"}
+      - run: go run ./reference/implementation/go/v2-conformance
