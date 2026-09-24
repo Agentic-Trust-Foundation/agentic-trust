@@ -1,1 +1,53 @@
-{"phase":41,"protocol_version":"atf/v2","title":"V2 RC","completion":["specification","schema","vectors","implementation","tests","ci","cross_repository_verification"],"rules":["all_prior_gates_green","semver_valid","no_unapproved_breaking_change","release_manifest_complete","rollback_defined"],"vectors":[{"id":"phase-41-all-prior-gates-green","expected_decision":"ALLOW","rule":"all_prior_gates_green"},{"id":"phase-41-semver-valid","expected_decision":"ALLOW","rule":"semver_valid"},{"id":"phase-41-no-breaking-change","expected_decision":"ALLOW","rule":"no_unapproved_breaking_change"},{"id":"phase-41-release-manifest","expected_decision":"ALLOW","rule":"release_manifest_complete"},{"id":"phase-41-rollback","expected_decision":"ALLOW","rule":"rollback_defined"},{"id":"phase-41-negative-fail-closed","expected_decision":"DENY","rule":"fail-closed"}]}
+{
+  "phase": 41,
+  "protocol_version": "atf/v2",
+  "title": "V2 RC",
+  "completion": [
+    "specification",
+    "schema",
+    "vectors",
+    "implementation",
+    "tests",
+    "ci",
+    "cross_repository_verification"
+  ],
+  "rules": [
+    "all_prior_gates_green",
+    "semver_valid",
+    "no_unapproved_breaking_change",
+    "release_manifest_complete",
+    "rollback_defined"
+  ],
+  "vectors": [
+    {
+      "id": "phase-41-all-prior-gates-green",
+      "expected_decision": "ALLOW",
+      "rule": "all_prior_gates_green"
+    },
+    {
+      "id": "phase-41-semver-valid",
+      "expected_decision": "ALLOW",
+      "rule": "semver_valid"
+    },
+    {
+      "id": "phase-41-no-breaking-change",
+      "expected_decision": "ALLOW",
+      "rule": "no_unapproved_breaking_change"
+    },
+    {
+      "id": "phase-41-release-manifest",
+      "expected_decision": "ALLOW",
+      "rule": "release_manifest_complete"
+    },
+    {
+      "id": "phase-41-rollback",
+      "expected_decision": "ALLOW",
+      "rule": "rollback_defined"
+    },
+    {
+      "id": "phase-41-negative-fail-closed",
+      "expected_decision": "DENY",
+      "rule": "fail-closed"
+    }
+  ]
+}
