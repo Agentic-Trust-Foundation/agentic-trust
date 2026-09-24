@@ -1,5 +1,5 @@
 {
-  "phase": "37",
+  "phase": 37,
   "protocol_version": "atf/v2",
   "specification": {
     "title": "Commerce Protocol Integration",
