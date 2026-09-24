@@ -70,5 +70,12 @@
   "tests": {
     "vector_count": 6,
     "negative_case": "fail-closed"
-  }
+  },
+  "rules": [
+    "signature_valid",
+    "audience_bound",
+    "nonce_present",
+    "replay_absent",
+    "secret_not_exposed"
+  ]
 }
