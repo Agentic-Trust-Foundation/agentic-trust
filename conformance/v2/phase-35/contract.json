@@ -1,5 +1,5 @@
 {
-  "phase": "35",
+  "phase": 35,
   "protocol_version": "atf/v2",
   "specification": {
     "title": "Financial Semantics",
