@@ -1,0 +1,74 @@
+{
+  "phase": "38",
+  "protocol_version": "atf/v2",
+  "specification": {
+    "title": "Real Deployment Profiles",
+    "completion": "specification+schema+vectors+implementation+tests+CI+cross_repository",
+    "invariants": [
+      "fail_closed",
+      "no_authority_expansion",
+      "reproducible_vectors",
+      "breaking_change_requires_new_protocol"
+    ]
+  },
+  "schema": {
+    "required": [
+      "phase",
+      "protocol_version",
+      "case_id",
+      "rule",
+      "expected_decision"
+    ],
+    "decision": [
+      "ALLOW",
+      "DENY",
+      "REQUIRE_HUMAN"
+    ]
+  },
+  "vectors": [
+    {
+      "id": "phase-38-01-environment_explicit",
+      "expected_decision": "ALLOW",
+      "rule": "environment_explicit"
+    },
+    {
+      "id": "phase-38-02-tls_required",
+      "expected_decision": "ALLOW",
+      "rule": "tls_required"
+    },
+    {
+      "id": "phase-38-03-secret_reference_only",
+      "expected_decision": "ALLOW",
+      "rule": "secret_reference_only"
+    },
+    {
+      "id": "phase-38-04-replicas_valid",
+      "expected_decision": "ALLOW",
+      "rule": "replicas_valid"
+    },
+    {
+      "id": "phase-38-05-provider_mode_explicit",
+      "expected_decision": "ALLOW",
+      "rule": "provider_mode_explicit"
+    },
+    {
+      "id": "phase-38-negative-fail-closed",
+      "expected_decision": "DENY",
+      "rule": "fail-closed"
+    }
+  ],
+  "implementation": {
+    "evaluator": "phase_contract_runner",
+    "rules": [
+      "environment_explicit",
+      "tls_required",
+      "secret_reference_only",
+      "replicas_valid",
+      "provider_mode_explicit"
+    ]
+  },
+  "tests": {
+    "vector_count": 6,
+    "negative_case": "fail-closed"
+  }
+}
