@@ -70,5 +70,12 @@
   "tests": {
     "vector_count": 6,
     "negative_case": "fail-closed"
-  }
+  },
+  "rules": [
+    "currency_consistent",
+    "amount_non_negative",
+    "precision_within_minor_units",
+    "idempotency_present",
+    "lifecycle_transition_valid"
+  ]
 }
