@@ -1,5 +1,5 @@
 {
-  "phase": "39",
+  "phase": 39,
   "protocol_version": "atf/v2",
   "specification": {
     "title": "Security Hardening",
