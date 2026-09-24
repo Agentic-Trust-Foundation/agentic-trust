@@ -1,5 +1,5 @@
 {
-  "phase": "40",
+  "phase": 40,
   "protocol_version": "atf/v2",
   "specification": {
     "title": "Independent Interoperability Certification",
