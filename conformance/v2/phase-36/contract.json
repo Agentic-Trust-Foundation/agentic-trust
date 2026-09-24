@@ -1,5 +1,5 @@
 {
-  "phase": "36",
+  "phase": 36,
   "protocol_version": "atf/v2",
   "specification": {
     "title": "Virtual Card / Payment Provider Architecture",
