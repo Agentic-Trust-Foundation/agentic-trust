@@ -1,0 +1,74 @@
+{
+  "phase": "35",
+  "protocol_version": "atf/v2",
+  "specification": {
+    "title": "Financial Semantics",
+    "completion": "specification+schema+vectors+implementation+tests+CI+cross_repository",
+    "invariants": [
+      "fail_closed",
+      "no_authority_expansion",
+      "reproducible_vectors",
+      "breaking_change_requires_new_protocol"
+    ]
+  },
+  "schema": {
+    "required": [
+      "phase",
+      "protocol_version",
+      "case_id",
+      "rule",
+      "expected_decision"
+    ],
+    "decision": [
+      "ALLOW",
+      "DENY",
+      "REQUIRE_HUMAN"
+    ]
+  },
+  "vectors": [
+    {
+      "id": "phase-35-01-currency_consistent",
+      "expected_decision": "ALLOW",
+      "rule": "currency_consistent"
+    },
+    {
+      "id": "phase-35-02-amount_non_negative",
+      "expected_decision": "ALLOW",
+      "rule": "amount_non_negative"
+    },
+    {
+      "id": "phase-35-03-precision_within_minor_units",
+      "expected_decision": "ALLOW",
+      "rule": "precision_within_minor_units"
+    },
+    {
+      "id": "phase-35-04-idempotency_present",
+      "expected_decision": "ALLOW",
+      "rule": "idempotency_present"
+    },
+    {
+      "id": "phase-35-05-lifecycle_transition_valid",
+      "expected_decision": "ALLOW",
+      "rule": "lifecycle_transition_valid"
+    },
+    {
+      "id": "phase-35-negative-fail-closed",
+      "expected_decision": "DENY",
+      "rule": "fail-closed"
+    }
+  ],
+  "implementation": {
+    "evaluator": "phase_contract_runner",
+    "rules": [
+      "currency_consistent",
+      "amount_non_negative",
+      "precision_within_minor_units",
+      "idempotency_present",
+      "lifecycle_transition_valid"
+    ]
+  },
+  "tests": {
+    "vector_count": 6,
+    "negative_case": "fail-closed"
+  }
+}
