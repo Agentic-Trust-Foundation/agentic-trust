@@ -70,5 +70,12 @@
   "tests": {
     "vector_count": 6,
     "negative_case": "fail-closed"
-  }
+  },
+  "rules": [
+    "schema_digest_match",
+    "vector_set_match",
+    "independent_runners",
+    "evidence_reproducible",
+    "protocol_version_match"
+  ]
 }
