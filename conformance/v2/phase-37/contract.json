@@ -1,0 +1,74 @@
+{
+  "phase": "37",
+  "protocol_version": "atf/v2",
+  "specification": {
+    "title": "Commerce Protocol Integration",
+    "completion": "specification+schema+vectors+implementation+tests+CI+cross_repository",
+    "invariants": [
+      "fail_closed",
+      "no_authority_expansion",
+      "reproducible_vectors",
+      "breaking_change_requires_new_protocol"
+    ]
+  },
+  "schema": {
+    "required": [
+      "phase",
+      "protocol_version",
+      "case_id",
+      "rule",
+      "expected_decision"
+    ],
+    "decision": [
+      "ALLOW",
+      "DENY",
+      "REQUIRE_HUMAN"
+    ]
+  },
+  "vectors": [
+    {
+      "id": "phase-37-01-merchant_bound",
+      "expected_decision": "ALLOW",
+      "rule": "merchant_bound"
+    },
+    {
+      "id": "phase-37-02-quote_fresh",
+      "expected_decision": "ALLOW",
+      "rule": "quote_fresh"
+    },
+    {
+      "id": "phase-37-03-order_total_matches",
+      "expected_decision": "ALLOW",
+      "rule": "order_total_matches"
+    },
+    {
+      "id": "phase-37-04-payment_intent_bound",
+      "expected_decision": "ALLOW",
+      "rule": "payment_intent_bound"
+    },
+    {
+      "id": "phase-37-05-idempotency_present",
+      "expected_decision": "ALLOW",
+      "rule": "idempotency_present"
+    },
+    {
+      "id": "phase-37-negative-fail-closed",
+      "expected_decision": "DENY",
+      "rule": "fail-closed"
+    }
+  ],
+  "implementation": {
+    "evaluator": "phase_contract_runner",
+    "rules": [
+      "merchant_bound",
+      "quote_fresh",
+      "order_total_matches",
+      "payment_intent_bound",
+      "idempotency_present"
+    ]
+  },
+  "tests": {
+    "vector_count": 6,
+    "negative_case": "fail-closed"
+  }
+}
