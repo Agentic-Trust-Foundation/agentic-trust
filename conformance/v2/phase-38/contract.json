@@ -70,5 +70,12 @@
   "tests": {
     "vector_count": 6,
     "negative_case": "fail-closed"
-  }
+  },
+  "rules": [
+    "environment_explicit",
+    "tls_required",
+    "secret_reference_only",
+    "replicas_valid",
+    "provider_mode_explicit"
+  ]
 }
