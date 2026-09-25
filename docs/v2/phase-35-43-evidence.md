@@ -19,8 +19,8 @@ This matrix records repository evidence, not claims inferred from phase names. A
 
 ## Verified current repository anchors
 
-- ATF main: `afb9fc7c7d7115ef9d2e156baf57331f93d44f48`; latest observed ATF validation run succeeded.
-- Agent-Pay main: `534b6a2021914d90d19485dc370eedb437ea9dba`; V1 conformance, reference implementation, Docker smoke, V2 phases 35-42, and V2 final workflows are present.
+- ATF main: `afb9fc7c7d7115ef9d2e156baf57331f93d44f48`; latest observed ATF validation run succeeded; the new V2 35-42 workflow also passed its independent Go verifier.
+- Agent-Pay main: `677c09794567117b0c93f636ef4895f2578605d`; V1 conformance, reference implementation, Docker smoke, V2 phases 35-42, and V2 final workflows are present. V2 Final run #7 passed the pinned ATF Go verifier.
 - Agent-Site-Adapter main: `fc72890ce37c17a8aec6f68ae1b596b7789be622`; external integration profile and quickstart, package/tests/CI are present.
 - Portfolio main: `fdcb3fa1406221f8ae5794dfa2ecef8d0b1c390f`; Vercel status was observed as successful.
 
