@@ -1,0 +1,29 @@
+{
+  "name": "Agentic Trust Foundation",
+  "short_name": "ATF",
+  "type": "open_protocol_and_reference_implementation",
+  "mission": "Trust, Delegation & Access Layer for the Agentic Internet",
+  "problem": "Establishing trustworthy delegated action between AI agents, users, services and systems",
+  "canonical_description": "ATF defines the trust, identity, delegation, authorization and accountability layer for agents acting on behalf of users and organizations.",
+  "components": {
+    "agentic-trust": "Core trust, identity, delegation, authorization and accountability layer",
+    "agent-pay": "Financial control and payment execution layer built on ATF authority",
+    "agent-site-adapter": "Service and website integration layer",
+    "portfolio": "Human-facing project and evidence presentation"
+  },
+  "not": [
+    "blockchain",
+    "cryptocurrency",
+    "bank",
+    "payment_processor",
+    "payment_rail",
+    "LLM_framework",
+    "API_gateway",
+    "OAuth_replacement",
+    "MCP_replacement",
+    "A2A_replacement",
+    "mandatory_hosted_service"
+  ],
+  "principle": "ATF establishes authority; downstream systems execute within that authority.",
+  "evidence_rule": "Implementation and CI evidence must not be presented as independent production, adoption, or certification evidence."
+}
