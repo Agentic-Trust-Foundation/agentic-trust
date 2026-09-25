@@ -1,95 +1,73 @@
 # Agentic Trust Foundation
 
-An open interoperability layer for trust, delegated authority, policy, provenance, and accountability in the agentic internet.
+> **Trust, Delegation & Access Layer for the Agentic Internet**
+
+Agentic Trust Foundation (ATF) is an open protocol and reference-implementation effort for the **trust, identity, delegation, authorization, and accountability layer** required when AI agents act on behalf of users and organizations.
+
+**Core principle:** ATF establishes authority; downstream systems execute within that authority.
+
+## Start here
+
+If you are discovering this project for the first time:
+
+1. **[PROJECT.md](PROJECT.md)** — canonical definition, ecosystem map, boundaries, and what is / is not implemented
+2. **[WHY.md](WHY.md)** — the problem ATF exists to solve and why Agent-Pay is built on top of it
+3. **[AI-CONTEXT.md](AI-CONTEXT.md)** — canonical machine/LLM interpretation and repository map
+4. **[STATUS.md](STATUS.md)** — current evidence boundary: implemented, verified, and still evidence-gated
+5. **[GLOSSARY.md](GLOSSARY.md)** — project terminology
+6. **docs/roadmap/** — historical and V2 roadmap context
+7. **specs/**, **schemas/**, **conformance/**, **test-vectors/** — normative and machine-readable protocol material
+8. **reference/implementation/** — reference implementations
+
+## Ecosystem
+
+~~~text
+AGENTIC INTERNET
+       |
+     AGENTS
+       |
+   delegated authority
+       |
+      ATF
+       |
+       +----> Agent Site Adapter ----> Websites / Services
+       |
+       +----> Agent-Pay ------------> Financial execution
+                                      |
+                                      +--> Payment providers / rails
+~~~
+
+### ATF
+
+ATF defines identity, credentials/evidence, delegation, authorization, capabilities, trust, consent, revocation, provenance, accountability, auditability, and human-control authority semantics.
+
+### Agent-Pay
+
+Agent-Pay is the financial control and payment execution layer built on authority established by ATF. It owns financial policy, budgets, approvals, payment instruments, provider execution, transactions/ledger, settlement, and reconciliation.
+
+### Agent Site Adapter
+
+Agent Site Adapter applies trust and authorization semantics to websites and services. It does not replace MCP, A2A, OAuth, ATF, payment rails, or other authoritative protocols.
+
+## What this is not
+
+ATF is not a blockchain, cryptocurrency, LLM/agent framework, marketplace, bank, PSP, payment processor, API gateway, mandatory hosted trust service, or replacement for OAuth/MCP/A2A.
 
 ## V1 Status
 
 **ATF Protocol V1 is FINAL and frozen as an open protocol + schemas + conformance suite + reference implementation.**
 
-The V1 baseline is intentionally protocol-first, implementation-backed, and service-optional. ATF is not a centralized global trust authority, mandatory SaaS service, or single credential/token provider.
+V1 is intentionally protocol-first, implementation-backed, and service-optional.
 
-**Project memory and complete roadmap:** `docs/roadmap/v1-complete-and-v2-roadmap-2026-09.md`
+## V2 Status
 
-## Purpose
-
-Agentic Trust Foundation defines open protocols and reference infrastructure for establishing and evaluating authority in interactions involving autonomous and semi-autonomous agents.
-
-The Foundation separates **authority** from **execution** and is designed to operate across independent trust domains.
-
-## Architecture
-
-```text
-AGENTIC INTERNET
-       │
-     AGENTS
-       │
-AGENT COMMERCE
-   │         │
-   ▼         ▼
-ATF TRUST  AGENT-PAY
-   │         │
-   └────┬────┘
-        ▼
-    REAL WORLD
-```
-
-### Agentic Trust Foundation
-
-Owns identity, credentials, delegation, authorization, capabilities, trust, consent, revocation, provenance, accountability, auditability, and human-approval authority semantics.
-
-### Agent-Pay
-
-A separate financial control/execution layer. It consumes ATF authority evidence and owns financial policy, budgets, approvals, payment instruments, provider execution, transaction/ledger, settlement, and reconciliation.
-
-## Core Principle
-
-> **ATF establishes authority; downstream systems execute within that authority.**
-
-Agent-Pay must never expand upstream ATF authority.
-
-## V1 Scope
-
-V1 includes:
-
-- Agent Identity and principal semantics
-- Credentials and verification concepts
-- Explicit bounded delegation
-- Authorization outcomes: `ALLOW`, `DENY`, `REQUIRE_HUMAN`
-- Capabilities and policy semantics
-- Trust-domain concepts
-- Consent and human approval
-- Revocation and fail-closed behavior
-- Provenance and auditability
-- Discovery/interoperability semantics without requiring a centralized registry
-- Versioning and conformance
-- Machine-readable schemas
-- Reference implementation
-- Agent-Pay cross-repository contract
-
-## V1 Boundary
-
-V1 intentionally does **not** freeze:
-
-- one universal ATF credential/token wire format;
-- one hosted ATF service;
-- one identity provider;
-- one agent runtime;
-- centralized mandatory reputation;
-- mandatory SaaS infrastructure.
-
-Those can be implementation profiles, deployment profiles, extensions, or future protocol versions.
+The public V2 baseline is implementation-backed with machine-readable contracts, conformance vectors, automated verification, and cross-repository validation. See STATUS.md for the distinction between internal engineering evidence and external production/adoption evidence.
 
 ## Repository Structure
 
-```text
+~~~text
 agentic-trust/
 ├── docs/
-│   ├── roadmap/
-│   ├── release/
-│   ├── architecture/
-│   ├── protocol/
-│   ├── security/
-│   └── governance/
 ├── specs/v1/
 ├── schemas/v1/
 ├── conformance/
@@ -97,25 +75,22 @@ agentic-trust/
 ├── reference/implementation/
 ├── examples/
 └── tools/
-```
+~~~
+
+## Important evidence boundary
+
+A reference implementation, passing CI, provider simulator, or cross-repository verifier is **not** by itself proof of:
+
+- live external PSP/bank/card-issuer integration;
+- independent production deployment;
+- independent security certification;
+- independent interoperability adoption.
+
+Those remain explicit evidence-gated goals.
 
 ## Documentation Order
 
-Start here before doing new work:
-
-1. `docs/roadmap/v1-complete-and-v2-roadmap-2026-09.md`
-2. `docs/release/v1-final-2026-09.md`
-3. `docs/architecture/agent-pay-integration-boundary.md`
-4. `specs/v1/`
-5. `schemas/v1/`
-6. `conformance/` and `test-vectors/`
-7. `reference/implementation/`
-
-## Status / Change Control
-
-V1 is a stable baseline. Do **not** restart a full V1 review unless there is evidence of a regression, security defect, violated invariant, conformance failure, or intentional contract change.
-
-Future work must be classified as documentation clarification, non-breaking hardening, optional extension/profile, or V2 semantic change.
+For protocol work, read the canonical project documents first, then the release/architecture docs, specifications, schemas, conformance vectors, and reference implementation.
 
 ## License
 
