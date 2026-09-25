@@ -31,7 +31,7 @@ func load(path string) Contract {
 func main() {
     root, err := os.Getwd()
     if err != nil { panic(err) }
-    repoRoot := filepath.Clean(filepath.Join(root, "..", "..", "..", "..", ".."))
+    repoRoot := filepath.Clean(filepath.Join(root, "..", "..", "..", ".."))
 
     for phase := 35; phase <= 42; phase++ {
         path := filepath.Join(repoRoot, "conformance", "v2", fmt.Sprintf("phase-%d", phase), "contract.json")
