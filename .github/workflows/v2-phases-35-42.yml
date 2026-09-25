@@ -15,4 +15,5 @@ jobs:
       - name: Run Python phase contract tests
         run: python3 tools/v2_phase_contract_runner.py
       - name: Run independent Go phase verifier
-        run: go run ./reference/implementation/go/v2-final-conformance
+        working-directory: reference/implementation/go/v2-final-conformance
+        run: go run .
